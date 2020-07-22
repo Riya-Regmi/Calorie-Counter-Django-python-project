@@ -1,0 +1,132 @@
+{% extends 'history.html' %}
+{% load static %}
+
+
+
+
+{% block history1 %}
+
+<style>
+    h3{
+    color:whitesmoke;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    font-style: normal;
+    padding-top: 2%;
+    }
+    .div2 {
+        height:70px;
+      background-color:darkcyan;
+        text-align: center;
+        margin:0 auto;
+        width: 90%;
+        margin-top: 50px;
+        border-radius: 30px;
+      }
+
+      #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        margin-top:20px;
+        text-align:center;
+        margin:0 auto;
+      }
+      
+      #customers td, #customers th {
+        border: 1px solid white;
+        padding: 14px;
+      }
+      
+      #customers tr:nth-child(even){background-color: #ddd;}
+      
+      #customers tr:hover {background-color: darkcyan;}
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-size:20px;
+        text-align: left;
+        background-color: darkcyan;
+        color: white;
+      }
+      
+</style>
+
+<div class="div2 ">
+    <h3 >Month Summary</h3>
+</div>
+    <div >
+      <table id="customers">
+        <p style="margin-top: 50px; color:darkcyan; font-size:30px;    margin-left:5%;">Food-Calorie : </p>
+
+        <tr>
+          <th>Month</th>
+          <th>Calorie-Count</th>
+        </tr>
+        {% for monthlistfoodname,sumfoodlist,yearlist1 in ziplist1 %}
+        <tr>
+          <td>{{monthlistfoodname}} , {{yearlist1}}</td>
+          <td>{{sumfoodlist}}</td>
+        </tr>
+        {% endfor %}
+        
+        
+    </div>
+
+
+
+    <div>
+      <table id="customers">
+        <p style="margin-top: 50px; color:darkcyan; font-size:30px;    margin-left:5%;">Water : </p>
+        <tr>
+          <th>Date</th>
+          <th>Glasses</th>
+        </tr>
+        {% for monthlistwatername,sumwaterlist,yearlist2 in ziplist2 %}
+        <tr>
+          <td>{{monthlistwatername}} {{yearlist2}}, </td>
+          <td>{{sumwaterlist}}</td>
+        </tr>
+        {% endfor %}
+
+    </div>
+
+    <div>
+      <table id="customers">
+        <p style="margin-top: 50px; color:darkcyan; font-size:30px;    margin-left:5%;">Caffiene : </p>
+        <tr>
+          <th>Date</th>
+          <th>Cup</th>
+        </tr>
+        {% for monthlistcoffeename,sumcoffeelist,yearlist3 in ziplist3 %}
+        <tr>
+          <td>{{monthlistcoffeename}}, {{yearlist3}}</td>
+          <td>{{sumcoffeelist}}</td>
+        </tr>
+        {% endfor %}
+    </div>
+
+
+
+    <div>
+      <table id="customers">
+        <p style="margin-top: 50px; color:darkcyan; font-size:30px;    margin-left:5%;">Exercise : </p>
+
+        <tr>
+          <th>Date</th>
+          <th>Calorie-burned</th>
+        </tr>
+        {% for monthlistexercisename,sumexerciselist,yearlist4 in ziplist4 %}
+        <tr>
+          <td>{{monthlistexercisename}} , {{yearlist4}}</td>
+          <td>{{sumexerciselist}}</td>
+        </tr>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock history1 %}
+

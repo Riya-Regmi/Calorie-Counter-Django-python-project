@@ -1,0 +1,172 @@
+{% extends 'history.html' %}
+{% load static %}
+
+
+
+
+{% block history1 %}
+
+<style>
+    h3{
+    color:whitesmoke;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    font-style: normal;
+    padding-top: 2%;
+    }
+    .div2 {
+        height:70px;
+        background-color:rosybrown;
+        text-align: center;
+        margin:0 auto;
+        width: 90%;
+        margin-top: 50px;
+        border-radius:30px;
+      }
+
+      #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        margin-top:20px;
+        text-align:center;
+        margin:0 auto;
+      }
+      
+      #customers td, #customers th {
+        border:1px solid white;
+        padding: 14px;
+      }
+      
+      #customers tr:nth-child(even){background-color: #ddd;}
+      
+      #customers tr:hover {background-color: rosybrown;}
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-size:20px;
+        text-align: left;
+        background-color: rosybrown;
+        color: white;
+      }
+
+      .box{
+        margin-left:0px;
+        margin-top:-1030px;
+
+        }
+    .border_left{
+        border-left:5px solid yellowgreen;
+        height:100%;
+    }
+    .border_right{
+        border-right:5px solid yellowgreen;
+        margin-right:0px;
+        height:100%;
+
+    }
+
+      
+</style>
+
+<div class="div2" >
+  <h3>Day Summary</h3>
+</div>
+<div >
+  <table id="customers">
+    <p style="margin-top: 50px; color:rosybrown; font-size:30px;  margin-left:5%;">Food-Calorie : </p>
+
+    <tr>
+      <th>Date</th>
+      <th>Food</th>
+      <th>Calorie</th>
+    </tr>
+    {% for datelistfood,foodlist,cal_list in ziplist1 %}
+    <tr>
+      <td>{{datelistfood}}</td>
+      <td>{{foodlist}}</td>
+      <td>{{cal_list}}</td>
+    </tr>
+    {% endfor %}
+</div>
+
+
+
+<div>
+  <table id="customers">
+    <p style="margin-top: 50px; color:rosybrown; font-size:30px;  margin-left:5%;">Water : </p>
+    <tr>
+      <th>Date</th>
+      <th>Glasses</th>
+    </tr>
+    {% for datelistwater,waterlist in ziplist2 %}
+    <tr>
+      <td>{{datelistwater}}</td>
+      <td>{{waterlist}}</td>
+    </tr>
+    {% endfor %}
+</div>
+
+<div>
+  <table id="customers">
+    <p style="margin-top: 50px; color:rosybrown; font-size:30px;  margin-left:5%;">Caffiene : </p>
+    <tr>
+      <th>Date</th>
+      <th>Cup</th>
+    </tr>
+    {% for datelistcoffee,coffeelist in ziplist3 %}
+    <tr>
+      <td>{{datelistcoffee}}</td>
+      <td>{{coffeelist}}</td>
+    </tr>
+    {% endfor %}
+</div>
+
+
+
+<div>
+  <table id="customers">
+    <p style="margin-top: 50px; color:rosybrown; font-size:30px;  margin-left:5%;">Exercise : </p>
+
+    <tr>
+      <th>Date</th>
+      <th>Exercise</th>
+      <th>Calorie-burned</th>
+    </tr>
+    {% for datelistexercise,exercisenamelist,exercisecallist in ziplist4 %}
+    <tr>
+      <td>{{datelistexercise}}</td>
+      <td>{{exercisenamelist}}</td>
+      <td>{{exercisecallist}}</td>
+    </tr>
+    {% endfor %}
+</div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock history1 %}

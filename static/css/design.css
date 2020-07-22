@@ -1,0 +1,82 @@
+h1{
+  
+    padding-top:10px;
+    margin:0 auto;
+    color:red;
+    float: left;
+    font-weight: thicker;
+    font-style: italic;
+}
+
+
+.bb{
+  border-bottom: 5px solid yellowgreen;
+  
+  
+}
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .topnav a {
+    float: left;
+    color: red;
+    text-align: center;
+    padding: 16px 30px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+.topnav a:hover{
+  background-color: yellowgreen;
+  text:white;
+}
+  
+  
+  
+  
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .topnav-right{
+    padding-top:10px;
+    float:right;
+  }
+  
+
+  img{
+    border-radius: 8px ;
+    border:5px solid yellowgreen;
+  }
+
+  .p{
+    color:red;
+    font-weight: 100; 
+    font-size:40px; 
+    letter-spacing:2px;
+    text-shadow: 2px 2px  black;
+
+
+  }
+
+
+  
+
+
+a.nav-link.active  {
+  color:red;
+  background-color:yellowgreen;
+  font-weight:bold;
+  
+
+}
+
+
+

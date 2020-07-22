@@ -1,0 +1,95 @@
+{% extends 'start.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin-top:50px;
+  margin-left:0%;
+  padding: 0;
+  width: 30%;
+  position:relative;
+  background-color: #f1f1f1;
+  border-right: 5px solid yellowgreen ;
+  height:1000px;
+  border-bottom: 5 px solid yellowgreen;
+}
+
+li a {
+  display: block;
+  color: red;
+  padding: 10% 15%;
+  text-decoration: none;
+  font-size: 160%;
+  font-weight:lighter;
+}
+
+li {
+  text-align: center;
+ 
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li a.active {
+  background-color: yellowgreen;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: yellowgreen;
+  color: white;
+}
+
+
+
+
+</style>
+</head>
+<body>
+    
+
+
+<ul> 
+  <li><a class="{{profile}}" href="{% url 'profile' username %}" >My Profile</a></li>
+  <li><a class="{{calculate}}" href="{% url 'calculate' username %}">Calculation</a></li>
+  <li><a  class="{{history}}" href="{% url 'historyday' username %}">History</a></li>
+  <li><a href="{% url 'home' %}" >Logout</a></li>
+
+</ul>
+
+
+
+{% block sidebar %}
+
+{% endblock sidebar %}
+
+</body>
+</html>
+
+
+
+
+
+
+    
+
+    
+        
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

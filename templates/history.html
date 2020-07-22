@@ -1,0 +1,102 @@
+{% extends 'sidebar.html' %}
+{% load static %}
+
+{% block sidebar %}
+<style>
+    .box{
+        margin-left:0px;
+        margin-top:-1030px;
+
+        }
+    .border_left{
+        border-left:5px solid yellowgreen;
+        margin-left:400px;
+        height:100%;
+    }
+    .border_right{
+        border-right:5px solid yellowgreen;
+        margin-right:0px;
+        height:100%;
+
+    }
+
+    .div1 {
+        
+        height: 100px;
+        margin-left:0px;
+        background-color:yellowgreen;
+        margin-top: 30px;
+      }
+
+      h2{
+        color:green;
+        text-align: center;
+        font-weight: bold;
+        font-size: 50px;
+        font-style: oblique;
+        padding-top: 20px;
+    }
+    .button {
+        border: none;
+        color: white;
+        padding: 24px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 20px 24px;
+        cursor: pointer;
+      }
+
+      .buttons:active{
+        background-color: yellowgreen;
+        color: white;
+
+      }
+      
+      .button1 {background-color: rosybrown;} 
+      .button2 {background-color: palevioletred;}
+      .button3{background-color: darkcyan;}
+      .button4{background-color: darkgray;}
+
+      .button:hover {
+        background-color: yellowgreen;
+        color: white;
+      }
+      
+    
+</style>
+      
+    
+
+
+
+
+
+
+<div class="box border_left border_right " style="margin-left:35%; width:65%;">
+    <div class="div1">
+        <h2 >HISTORY</h2>
+    </div>
+    <div style="margin-top: 30px; text-align:center;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <form>
+                <button formaction="{% url 'historyday' username %}" class="button button1  ">Day</button>
+                <button formaction="{% url 'historyweek' username %}" class="button button2  ">Week</button>
+                <button formaction="{% url 'historymonth' username %}" class="button button3  ">Month</button>
+            </form>
+        </form>
+    </div>
+        {% block history1 %}
+
+
+        {% endblock history1 %}
+</div>
+
+
+
+
+
+
+{% endblock sidebar %}

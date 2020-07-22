@@ -1,0 +1,158 @@
+{% extends 'sidebar.html' %}
+{% load static %}
+
+{% block sidebar %}
+
+<style>
+    .box{
+        margin-left:0px;
+        margin-top:-1030px;
+        width:50%;
+
+        }
+    .border_left{
+        border-left:5px solid yellowgreen;
+        margin-left:400px;
+        height:100%;
+    }
+    .border_right{
+        border-right:5px solid yellowgreen;
+        margin-right:0px;
+        height:100%;
+
+    }
+
+    .div1 {
+        
+        height: 100px;
+        margin-left:0px;
+        background-color:yellowgreen;
+        margin-top: 30px;
+      }
+      h2{
+          color:green;
+          text-align: center;
+          font-weight: bold;
+          font-size: 50px;
+          font-style: oblique;
+          padding-top: 0px;
+          margin:0 auto;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 14px;
+        
+        border: none;
+        cursor: pointer;
+        width: 90px;
+      }
+      
+      button:hover {
+        opacity: 0.8;
+      }
+      h3{
+          text-align: center;
+          margin-top:80px;
+          color:green;
+          font:larger bolder;
+          font-size: 40px;
+          padding:18px 24px;
+          
+      }
+
+      .box2{
+        box-sizing: border-box;
+        border-color:yellowgreen;
+        text-align: center;
+      } 
+      
+      input, textarea {
+        width: 50%;
+        text-align: center;
+      }
+
+      input[type=file] {
+        margin:50px auto;
+    }
+      
+      
+
+      
+
+      
+
+
+
+</style>
+
+
+<div class="box border_left border_right " style=" margin-left:35%; width:65%;" >
+    <div class="div1">
+        <h2 >MY PROFILE</h2>
+    </div>   
+
+    <div>
+        <div style="text-align: center;">
+            <img src="{{data2.image.url}}" alt="" width="40%" height="300" style=" margin-right:auto;  margin-top:70px;">
+            <div style="margin-top: 50px; text-align:center;">
+                <form action="" method="POST" enctype="multipart/form-data" style="text-align: center;"> 
+                    {% csrf_token %}
+                    <label for="img" style="color:black; font-size:large; padding:20px 24px; " >Upload Profile-picture:</label>
+                    <input type="file" id="img" name="image" accept="image/*" placeholder="pp.jpg" style="margin:auto;">
+                    <input type="submit" name="photosubmit" value="Upload" style="border-color:greenyellow; height:50px; width:25%; color:red; font-size:20px; margin:15px;">
+                </form>
+            </div>  
+            <div>
+                <div >
+                    {% for message in messages %}
+                  
+                    <h3 class="alert alert-danger "> {{message}}</h3>
+                  
+                    {% endfor %}
+                  
+                </div>
+
+                <h3>PROFILE INFO</h3>
+                <div class="box2" >
+                    <form action="" method="POST">
+                        {% csrf_token %} 
+                        <label for="name" style="color:red; font-size:20px; ">Name:</label><br>
+                        <input type="text" name="name"  style="border-color:greenyellow; height:50px; font-size:20px;" value="{{data1.name}}"><br>
+                        <br> 
+                        <label for="email" style="color:red; font-size:20px; ">Email:</label><br>
+                        <input type="text" name="email" style="border-color:greenyellow; height:50px; font-size:20px;"  value="{{data1.email}}"><br>
+
+                        <br>
+                        <label for="password" style="color:red; font-size:20px; ">Password:</label><br>
+                        <input type="password" name="password" style="border-color:greenyellow; height:50px; font-size:20px;"  value="{{data1.password}}"><br>
+                        <br>
+                        
+                       <input type="submit" name="detailsubmit" value="Save" style="border-color:greenyellow; height:50px; color:red; font-size:20px;" >
+                    </form>
+                </div>
+            </div>
+             
+            
+        </div>
+    
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock sidebar %}
+
+

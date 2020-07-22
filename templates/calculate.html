@@ -1,0 +1,228 @@
+{% extends 'sidebar.html' %}
+{% load static %}
+
+{% block sidebar %}
+<style>
+    .box{
+        margin-left:0px;
+        margin-top:-1030px;
+        width:50%;
+
+        }
+    .border_left{
+        border-left:5px solid yellowgreen;
+        margin-left:400px;
+        height:100%;
+    }
+    .border_right{
+        border-right:5px solid yellowgreen;
+        margin-right:0px;
+        height:100%;
+
+    }
+
+    .div1 {
+        
+        height: 100px;
+        margin-left:0px;
+        background-color:yellowgreen;
+        margin-top: 30px;
+      }
+      h2{
+          color:green;
+          text-align: center;
+          font-weight: bold;
+          font-size: 300%;
+          font-style: oblique;
+          padding-top: 0px;
+          margin:0 auto;
+      }
+
+      h3{
+          text-align: center;
+          margin-top:80px;
+          color:green;
+          font:larger bolder;
+          font-size: 40px;
+          padding:18px 24px;
+          
+      }
+
+      .box2{
+        box-sizing: border-box;
+        border-color:yellowgreen;
+        text-align: center;
+      } 
+    
+
+    #rcorners1 {
+        border-radius: 25px;
+        padding:20px;
+        border: 2px solid yellowgreen;
+        height:550px;
+        width: 50%;  
+        margin:0 auto;
+        margin-top:20px;
+    }
+    #rcorners2 {
+        border-radius: 0px;
+        border: 2px solid white;
+        width: 90%;
+        align-items: center;
+        height: 80%;  
+        float:left;
+        text-align:center;
+      }
+
+      #rcorners3 {
+        border-radius: 0px;
+        border: 2px solid yellowgreen;
+        width: 55%;
+        height: 70%;  
+        float: right;
+        
+      }
+      input, textarea {
+        width: 70%;
+        text-align: center;
+      }
+      .button {
+        border-radius: 20px;
+        background-color: lightblue;
+        border: 5px solid whitesmoke ;
+        color:green;
+        width: 80%;
+        height:50px;
+        transition: all 0.5s;
+        cursor: pointer;
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+        
+      }
+      
+      
+
+      
+
+
+      
+      
+      
+
+      
+
+      
+
+
+
+</style>
+
+
+<div class="box border_left border_right " style=" margin-left:35%; width:65%;" >
+    <div class="div1">
+        <h2 >MY CALCULATION</h2>
+    </div>
+    <div >
+      {% for message in messages %}
+    
+      <h3 class="alert alert-danger"> {{message}}</h3>
+    
+      {% endfor %}
+    
+    </div>
+
+    <div>
+      <p style="text-align: center; color:lightgreen; font-size:30px;">{{info}}</p>
+    </div>
+  
+    <div id="rcorners1">
+        <p style="text-align: center; font-size:250%; color:lightseagreen;"><i class="fas fa-utensils" style="height:50%;  color:lightblue"></i>FOOD</p>
+        <div id="rcorners2" >
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="FOOD" name="foods" style="border-color:lightblue; height:50px; font-size:20px; margin-top:20%;">
+                <button class="button" style="margin-top:3%; width:70%;  text-align:center;">Calculate</button>
+            </form>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text"  value="{{food}} cal"  name="foodcal" style="height:50px;  text-align:left; font-size:20px; width:70%; margin-top:15%;" >
+                <input type="text"    value="{{gm}} " name="amount" style="height:50px; text-align:left; font-size:20px; width:70%; margin-top:10px;" >
+                <button class="button"  value="add" name="add" style="margin-top: 3%; width:75%;"><span>ADD</span></button>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div id="rcorners1" style="height:300px;">
+        <p style="font-size: 200%; font-style:normal; text-align:center;  color:lightseagreen;"><i class="fas fa-water"></i>   WATER</p>
+        <div id="rcorners2" >
+            <p style="margin-top:15%; font-size:30px; width:50%; text-align:center; margin-left:25%; color:teal;">{{water}} Glass</p>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button class="button"  name="water" value="Count" style="  width:75%;"><span>Count</span></button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="rcorners1" style="height:300px;">
+        <p style="font-size: 200%; font-style:normal; text-align:center;  color:lightseagreen;"><i class="fas fa-coffee"></i>   CAFFEINE</p>
+        <div id="rcorners2">
+            <p style="margin-top:15%; font-size:30px; margin-left:25%; text-align:center; width:50%; color:teal;">{{coffee}} Cup</p>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button class="button"  name="cofe" value="Count" style=" width:75%;"><span>Count</span></button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="rcorners1">
+        <p style="font-size:200%; font-style:normal; text-align:center;  color:lightseagreen;"><i class="fas fa-walking"></i>   EXERCISE</p>
+        <div id="rcorners2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <select id="country" name="exercise" style="width: 70%; text-align: center; border-color:lightblue; height:50px; font-size:20px; margin-top:20%;">
+                    <option value="aerobics">Aerobics</option>
+                    <option value="backextension">Back extension</option>
+                    <option value="badminton">Badminton</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="cycling">Cycling</option>
+                    <option value="dancing">Dancing</option>
+                    <option value="football">Football</option>
+                    <option value="legextensions">Leg extensions</option>
+                    <option value="legstretching">Leg stretching</option>
+                    <option value="lunges">Lunges</option>
+                    <option value="mountainclimber">Mountain Climbers</option>
+                    <option value="running">Running</option>
+                    <option value="skippingrope">Skipping</option>
+                    <option value="situps">Sit-ups</option>
+                    <option value="swimming">Swimming</option>
+                    <option value="yogs">Yogs</option>
+                    <option value="other">Others</option>
+                </select>
+                <input type="integer" placeholder="0 min" value="10 min" name="time" style="margin-top:3%; height:40px; font-size:20px; width: 70%; text-align: center;" required>
+                <input type="integer"  value="10 kg " name="weight" style="margin-top:3%; height:40px; font-size:20px; width: 70%; text-align: center;" required >
+                <button class="button" name="exe" style=" margin-top:3%; width:60%; text-align:center;"><span>Count</span></button>
+            </form>
+            <p style="margin-top:15%; font-size:30px; text-align:center; color:teal;">{{exercisename}} </p>
+          <p style="margin-top:1%; font-size:30px; text-align:center; color:teal;">{{exercise}} Cal </p>
+            
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+{% endblock sidebar %}
